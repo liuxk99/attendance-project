@@ -1,2 +1,2 @@
-include ':app', ":business-logic"
+include ':app', ':alarmclock', ":business-logic"
 rootProject.name='LeClock'
