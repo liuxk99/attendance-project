@@ -54,8 +54,5 @@ public class ClockAlarmActivity extends Activity {
                 }
             }
         });
-
-
     }
-
 }
