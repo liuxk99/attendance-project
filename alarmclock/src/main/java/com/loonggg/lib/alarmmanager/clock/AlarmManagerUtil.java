@@ -5,14 +5,19 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.util.Log;
 
 
 import java.util.Calendar;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by loonggg on 2016/3/21.
  */
 public class AlarmManagerUtil {
+    private static final String TAG = AlarmManagerUtil.class.getSimpleName();
+
     public static final String ALARM_ACTION = "com.gao.alarm.clock";
 
     public static void setAlarmTime(Context context, long timeInMillis, Intent intent) {
@@ -46,10 +51,12 @@ public class AlarmManagerUtil {
     public static void setAlarm(Context context, int flag, int hour, int minute, int id, int
             week, String tips, int soundOrVibrator) {
         AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        Calendar calendar = Calendar.getInstance();
         long intervalMillis = 0;
+
+        Calendar calendar = Calendar.getInstance();
         calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get
                 (Calendar.DAY_OF_MONTH), hour, minute, 10);
+
         if (flag == 0) {
             intervalMillis = 0;
         } else if (flag == 1) {
@@ -65,7 +72,10 @@ public class AlarmManagerUtil {
         PendingIntent sender = PendingIntent.getBroadcast(context, id, intent, PendingIntent
                 .FLAG_CANCEL_CURRENT);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            am.setWindow(AlarmManager.RTC_WAKEUP, calMethod(week, calendar.getTimeInMillis()),
+            long timeInMillis = calMethod(week, calendar.getTimeInMillis());
+            Log.d(TAG, "date-time: " + TimeUtils.formatDateTime(timeInMillis));
+
+            am.setWindow(AlarmManager.RTC_WAKEUP, timeInMillis,
                     intervalMillis, sender);
         } else {
             if (flag == 0) {

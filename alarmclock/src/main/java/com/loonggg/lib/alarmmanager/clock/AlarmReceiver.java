@@ -1,15 +1,11 @@
 package com.loonggg.lib.alarmmanager.clock;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Vibrator;
-import android.view.WindowManager;
+import android.util.Log;
 
 /**
  * Created by loongggdroid on 2016/3/21.
@@ -17,9 +13,11 @@ import android.view.WindowManager;
 public class AlarmReceiver extends BroadcastReceiver {
     private MediaPlayer mediaPlayer;
     private Vibrator vibrator;
+    static final String TAG = AlarmReceiver.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
+        Log.d(TAG, "onReceive(" + context + ", " + intent + ")");
         // TODO Auto-generated method stub
         String msg = intent.getStringExtra("msg");
         long intervalMillis = intent.getLongExtra("intervalMillis", 0);
@@ -34,6 +32,4 @@ public class AlarmReceiver extends BroadcastReceiver {
         clockIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         context.startActivity(clockIntent);
     }
-
-
 }
