@@ -48,6 +48,7 @@ build
 app/
 .repo/
 business-logic/
+libCalendar/
 
 # files
 *.log
