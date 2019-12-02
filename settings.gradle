@@ -1,2 +1,2 @@
 include ':app', ':alarmclock', ':libCalendar', ":business-logic"
-rootProject.name='LeClock'
+rootProject.name='Attendance'
