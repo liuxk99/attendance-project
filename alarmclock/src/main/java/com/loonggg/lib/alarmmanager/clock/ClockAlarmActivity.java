@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.app.Service;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Vibrator;
 import android.view.View;
 
@@ -11,6 +13,7 @@ import android.view.View;
 public class ClockAlarmActivity extends Activity {
     private MediaPlayer mediaPlayer;
     private Vibrator vibrator;
+    final private int MEDIA_PLAYER_TIME_OUT = 1000 * 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +29,14 @@ public class ClockAlarmActivity extends Activity {
             mediaPlayer = MediaPlayer.create(this, R.raw.in_call_alarm);
             mediaPlayer.setLooping(true);
             mediaPlayer.start();
+
+            // stop after timeout.
+            new Handler(getMainLooper()).postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    mediaPlayer.stop();
+                }
+            }, MEDIA_PLAYER_TIME_OUT);
         }
         //数组参数意义：第一个参数为等待指定时间后开始震动，震动时间为第二个参数。后边的参数依次为等待震动和震动的时间
         //第二个参数为重复次数，-1为不重复，0为一直震动
@@ -36,7 +47,7 @@ public class ClockAlarmActivity extends Activity {
 
         final SimpleDialog dialog = new SimpleDialog(this, R.style.Theme_dialog);
         dialog.show();
-        dialog.setTitle("闹钟提醒");
+        dialog.setTitle(R.string.reminder);
         dialog.setMessage(message);
         dialog.setClickListener(new View.OnClickListener() {
             @Override

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AlarmManagerClock</string>
+    <string name="reminder">Reminder</string>
 </resources>
