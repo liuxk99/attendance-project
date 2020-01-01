@@ -34,7 +34,9 @@ public class ClockAlarmActivity extends Activity {
             new Handler(getMainLooper()).postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    mediaPlayer.stop();
+                    if (mediaPlayer != null) {
+                        mediaPlayer.stop();
+                    }
                 }
             }, MEDIA_PLAYER_TIME_OUT);
         }
@@ -56,6 +58,8 @@ public class ClockAlarmActivity extends Activity {
                     if (flag == 1 || flag == 2) {
                         mediaPlayer.stop();
                         mediaPlayer.release();
+
+                        mediaPlayer = null;
                     }
                     if (flag == 0 || flag == 2) {
                         vibrator.cancel();
