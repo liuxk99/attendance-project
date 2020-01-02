@@ -92,3 +92,5 @@ libCalendar/
 
 # files
 *.log
+
+.idea/misc.xml
