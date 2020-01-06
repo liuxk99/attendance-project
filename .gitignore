@@ -89,6 +89,7 @@ app/
 .repo/
 business-logic/
 libCalendar/
+utils4j/
 
 # files
 *.log

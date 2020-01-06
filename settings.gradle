@@ -1,2 +1,2 @@
-include ':app', ':alarmclock', ':libCalendar', ":business-logic"
+include ':app', ':alarmclock', ':libCalendar', ':utils4j', ":business-logic"
 rootProject.name='Attendance'
