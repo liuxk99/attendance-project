@@ -90,6 +90,7 @@ app/
 business-logic/
 libCalendar/
 utils4j/
+provider/
 
 # files
 *.log

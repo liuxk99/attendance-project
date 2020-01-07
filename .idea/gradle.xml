@@ -11,6 +11,11 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/alarmclock" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/business-logic" />
+            <option value="$PROJECT_DIR$/libCalendar" />
+            <option value="$PROJECT_DIR$/utils4j" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
