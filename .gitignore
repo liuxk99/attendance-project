@@ -93,6 +93,7 @@ libTime/
 utils4j/
 utils4a/
 provider/
+jatl/
 
 # files
 *.log
