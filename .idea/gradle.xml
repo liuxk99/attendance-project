@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
   <component name="GradleSettings">
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
-        <compositeConfiguration>
-          <compositeBuild compositeDefinitionSource="SCRIPT" />
-        </compositeConfiguration>
+        <option name="delegatedBuild" value="false" />
+        <option name="testRunner" value="PLATFORM" />
         <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="modules">
@@ -14,12 +14,15 @@
             <option value="$PROJECT_DIR$/alarmclock" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/business-logic" />
+            <option value="$PROJECT_DIR$/jatl" />
             <option value="$PROJECT_DIR$/libCalendar" />
+            <option value="$PROJECT_DIR$/libTime" />
+            <option value="$PROJECT_DIR$/provider" />
+            <option value="$PROJECT_DIR$/utils4a" />
             <option value="$PROJECT_DIR$/utils4j" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
-        <option name="testRunner" value="PLATFORM" />
       </GradleProjectSettings>
     </option>
   </component>
